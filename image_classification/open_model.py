@@ -10,7 +10,7 @@ img_width = 180
 class_names = ['cat', 'dog']
 
 img = keras.preprocessing.image.load_img(
-    "15.jpg", target_size=(img_height, img_width)
+    "1.jpg", target_size=(img_height, img_width)
 )
 img_array = keras.preprocessing.image.img_to_array(img)
 img_array = tf.expand_dims(img_array, 0)

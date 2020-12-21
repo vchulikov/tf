@@ -15,7 +15,7 @@ from tensorflow.keras.models import Sequential
 #data_dir = pathlib.Path(data_dir)
 
 #OR USE LOADED
-data_dir = "/home/user/.keras/datasets/car_set"
+data_dir = "/home/croissant/.keras/datasets/car_set"
 data_dir = pathlib.Path(data_dir)
 #print(type(data_dir))
 image_count = len(list(data_dir.glob('*/*.jpg')))

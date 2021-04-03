@@ -20,7 +20,7 @@ raw_dataset = pd.read_csv("smoking_data.csv", names=column_names,
                           na_values='?', comment='\t',
                           sep=',', skipinitialspace=True)
 
-#remove shitty column
+#remove column
 del raw_dataset['Country']
 
 dataset = raw_dataset.copy()

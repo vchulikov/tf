@@ -15,7 +15,7 @@ from tensorflow.keras.models import Sequential
 #data_dir = pathlib.Path(data_dir)
 
 #OR USE LOADED
-data_dir = "/home/croissant/.keras/datasets/car_set"
+data_dir = "/home/croissant/.keras/datasets/cat_set"
 data_dir = pathlib.Path(data_dir)
 #print(type(data_dir))
 image_count = len(list(data_dir.glob('*/*.jpg')))
@@ -32,14 +32,18 @@ img_width = 180
 #SAMPLES
 train_ds = tf.keras.preprocessing.image_dataset_from_directory(
   data_dir,
+  labels="inferred",
+  label_mode="int",
   validation_split=0.2,
   subset="training",
   seed=123,
   image_size=(img_height, img_width),
   batch_size=batch_size)
-
+  
 val_ds = tf.keras.preprocessing.image_dataset_from_directory(
   data_dir,
+  labels="inferred",
+  label_mode="int",
   validation_split=0.2,
   subset="validation",
   seed=123,
@@ -104,7 +108,7 @@ model.compile(optimizer='adam', loss=tf.keras.losses.SparseCategoricalCrossentro
 #model info
 #model.summary()
 
-epochs = 10
+epochs = 50
 history = model.fit(train_ds, validation_data=val_ds, epochs=epochs)
 
 acc = history.history['accuracy']
